@@ -8,18 +8,17 @@
     }
     {{styles}}
   </style>
-  {% if content contains "font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif;" %}
-
-  {{content | replace: "font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif;", "font-family: Helvetica, sans-serif;" | replace: "font-size: 14px;", "font-size: 16px;" | replace: "color:#2b2e2f;", "color:#545454;"}}
-  
-  {% else %}
-  {{content}}
-  {% endif %}
 </head>
 <body {{attributes}} style="width: 100%!important; margin: 0; padding: 0;">
   <div style="padding: 10px ; line-height: 22px; font-family: Helvetica, sans-serif; font-size: 16px; color:#545454;">
     <div style="color: #ffffff;">{{delimiter}}</div>
+    {% if content contains "font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif;" %}
+
+    {{content | replace: "font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', Verdana, sans-serif;", "font-family: Helvetica, sans-serif;" | replace: "font-size: 14px;", "font-size: 16px;" | replace: "color:#2b2e2f;", "color:#545454;"}}
+    
+    {% else %}
     {{content}}
+    {% endif %}
   </div>
 </body>
 </html>
